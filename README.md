@@ -58,5 +58,5 @@ Examples:
 ```sh
 docker-compose run --rm sphinx sphinx-quickstart
 docker-compose run --rm sphinx make html
-docker-compose run --rm sphinx conf_publisher config.yml --verbose --url https://tv2cms.atlassian.net/wiki --auth <confluence auth> --force
+docker-compose run --rm sphinx conf_publisher config.yml --verbose --url <confluence url>/wiki --auth <confluence auth> --force
 ```
