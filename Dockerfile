@@ -13,7 +13,7 @@ RUN apk upgrade --update \
           openjdk8-jre \
           ttf-dejavu \
           graphviz
-
+	  
 # Install PlantUML
 RUN apk add --no-cache --virtual .ssl-deps \
       openssl \
@@ -26,10 +26,12 @@ RUN apk add --no-cache --virtual .ssl-deps \
 
 # Install Sphinx and extras
 RUN pip install --no-cache-dir \
-      Sphinx \
+#      Sphinx \
+      sphinx-confluence \
       sphinx_rtd_theme \
       sphinxcontrib-plantuml \
-      sphinxcontrib-httpdomain
+      sphinxcontrib-httpdomain \
+      confluence-publisher
 
 # Stop Java from writing files in documentation source
 ENV _JAVA_OPTIONS -Duser.home=/tmp

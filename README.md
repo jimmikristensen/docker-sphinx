@@ -10,6 +10,7 @@ This image contains:
 - A variety of plugins:
   - [sphinxcontrib-plantuml](https://pypi.python.org/pypi/sphinxcontrib-plantuml)
   - [sphinxcontrib-httpdomain](https://pypi.python.org/pypi/sphinxcontrib-httpdomain)
+- [Confluence Publisher](https://github.com/Arello-Mobile/confluence-publisher)
 
 ## Build
 
@@ -57,4 +58,5 @@ Examples:
 ```sh
 docker-compose run --rm sphinx sphinx-quickstart
 docker-compose run --rm sphinx make html
+docker-compose run --rm sphinx conf_publisher config.yml --verbose --url https://tv2cms.atlassian.net/wiki --auth <confluence auth> --force
 ```
