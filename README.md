@@ -57,6 +57,8 @@ Examples:
 
 ```sh
 docker-compose run --rm sphinx sphinx-quickstart
+# or without interactive wizard
+docker-compose run --rm sphinx sphinx-quickstart  -p 'Template Project' -a 'TV 2 PLAY Backend' --sep --dot=. -v 1.0 --suffix=.rst --master=index --extensions=sphinxcontrib.plantuml -q /doc
 docker-compose run --rm sphinx make html
 docker-compose run --rm sphinx conf_publisher config.yml --verbose --url <confluence url>/wiki --auth <confluence auth> --force
 ```
