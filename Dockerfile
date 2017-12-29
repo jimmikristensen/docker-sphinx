@@ -1,5 +1,5 @@
 FROM alpine:latest
-LABEL maintainer="OSC"
+LABEL maintainer="Jimmi Kristensen <picbot@gmail.com>"
 
 # Set language to avoid bugs that sometimes appear
 ENV LANG en_US.UTF-8
@@ -22,7 +22,8 @@ RUN apk add --no-cache --virtual .ssl-deps \
     && wget -O "/opt/plantuml.jar" "https://sourceforge.net/projects/plantuml/files/plantuml.jar" \
     && printf '#!/bin/sh -e\njava -jar /opt/plantuml.jar "$@"' > /usr/local/bin/plantuml \
     && chmod 755 /usr/local/bin/plantuml \
-    && apk del .ssl-deps
+    && apk del .ssl-deps \
+    && mkdir /scripts
 
 # Install Sphinx and extras
 RUN pip install --no-cache-dir \
@@ -32,6 +33,8 @@ RUN pip install --no-cache-dir \
       sphinxcontrib-plantuml \
       sphinxcontrib-httpdomain \
       confluence-publisher
+
+ADD sphinx_quickstart.sh /scripts
 
 # Stop Java from writing files in documentation source
 ENV _JAVA_OPTIONS -Duser.home=/tmp
