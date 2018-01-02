@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# check if env vars are set
+: "${projectName?Environment variable missing}"
+
 DOC_DIR=/doc/sphinxdoc
 
 # clean up sphinxdoc dir before initializing
