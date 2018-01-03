@@ -17,14 +17,14 @@ images=""
 
 find $DOC_DIR/build/json/_images -iname "*.png" -maxdepth 1 | \
     while read F; do
-	echo "   - $F" >> $TMP_IMAGE_FILE
+	echo "    - $F" >> $TMP_IMAGE_FILE
     done
 
 attachedImages=`cat $TMP_IMAGE_FILE`
 
 if [ ! -z "$attachedImages" ]; then
-    attachedImages=" - attachments:
-   images:
+    attachedImages="  attachments:
+    images:
 $attachedImages"
 fi
 
@@ -34,11 +34,12 @@ touch $CONFIG_FILE
 version: 2
 url: https://tv2cms.atlassian.net/wiki
 base_dir: $DOC_DIR/build/json
-downloads_dir: _images
+downloads_dir: _downloads
+images_dir: _images
 source_ext: .fjson
 pages:
- - id: $confluencePageId
-   source: $confluencePublishFile
+- id: $confluencePageId
+  source: $confluencePublishFile
 $attachedImages
 EOF
 
