@@ -1,4 +1,4 @@
-import re, shutil, tempfile
+import re, shutil, tempfile, sys
 
 def replace_in_file(filename, pattern, replace):
     '''
@@ -11,11 +11,12 @@ def replace_in_file(filename, pattern, replace):
     with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmp_file:
         with open(filename) as src_file:
             for line in src_file:
-                tmp_file.write(pattern_compiled.sub(repl, line))
+                tmp_file.write(pattern_compiled.sub(replace, line))
 
     #overwrite original file with temp file such that file attributes are preserved
     shutil.copystat(filename, tmp_file.name)
     shutil.move(tmp_file.name, filename)
 
-replace_in_file('/Users/jikr/Downloads/rst/_build/json/README2.fjson', r'../_images/plantuml-bb97be8c1bffd\
-ddd686367f7ea95a2f6249e5539.png', '')
+filename=sys.argv[1]
+img=sys.argv[2]
+replace_in_file(filename, r'<p class=\\"plantuml\\">.*?%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\"%s\" ri:version-at-save=\"1\" /></ac:image></p>' % img)
