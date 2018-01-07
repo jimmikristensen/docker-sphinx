@@ -18,6 +18,9 @@ images=""
 find $DOC_DIR/build/json/_images -iname "*.png" -maxdepth 1 | \
     while read F; do
 	echo "    - $F" >> $TMP_IMAGE_FILE
+	imgfileBasename=${F##*/}
+	jsonFilePath="$DOC_DIR/build/json/$confluencePublishFile.fjson"
+	python /scripts/confluencify_images.py $jsonFilePath $imgfileBasename
     done
 
 attachedImages=`cat $TMP_IMAGE_FILE`

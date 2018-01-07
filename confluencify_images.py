@@ -19,4 +19,4 @@ def replace_in_file(filename, pattern, replace):
 
 filename=sys.argv[1]
 img=sys.argv[2]
-replace_in_file(filename, r'<p class=\\"plantuml\\">.*?%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\"%s\" ri:version-at-save=\"1\" /></ac:image></p>' % img)
+replace_in_file(filename, r'<p class=\\"plantuml\\">.*?%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
