@@ -2,8 +2,13 @@
 
 # check if env vars are set
 : "${confluenceAuth?ENV var missing, confluence auth base64 key is not set}"
-: "${confluencePageId?ENV var missing, confluence page ID is not set}"
-: "${confluencePublishFile?ENV var missing, doc file to publish to confluence not set}"
+: "${confluencePages?ENV var missing, confluencePages is not set}"
+
+IFS="," # set internal field separator to comma to parse into array
+for i in $confluencePages
+do
+    echo "$i"
+done
 
 DOC_DIR=/doc/sphinxdoc
 CONFIG_FILE=$DOC_DIR/config.yml
@@ -20,7 +25,7 @@ find $DOC_DIR/build/json/_images -iname "*.png" -maxdepth 1 | \
 	echo "    - $F" >> $TMP_IMAGE_FILE
 	imgfileBasename=${F##*/}
 	jsonFilePath="$DOC_DIR/build/json/$confluencePublishFile.fjson"
-	python /scripts/confluencify_images.py $jsonFilePath $imgfileBasename
+#	python /scripts/confluencify_images.py $jsonFilePath $imgfileBasename
     done
 
 attachedImages=`cat $TMP_IMAGE_FILE`
@@ -46,5 +51,5 @@ pages:
 $attachedImages
 EOF
 
-conf_publisher -F $DOC_DIR/config.yml --auth $confluenceAuth
+#conf_publisher -F $DOC_DIR/config.yml --auth $confluenceAuth
 
