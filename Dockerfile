@@ -37,6 +37,7 @@ RUN pip install --no-cache-dir \
 ADD sphinx_quickstart.sh /scripts
 ADD confluence_publisher.sh /scripts
 ADD confluencify_images.py /scripts
+ADD confluence_config_creator.py /scripts
 
 # Stop Java from writing files in documentation source
 ENV _JAVA_OPTIONS -Duser.home=/tmp

@@ -1,17 +1,6 @@
 import os
 import sys
 import glob
-'''
-confluencePages='README:160465230,index:235012393'
-confluenceUrl='https://tv2cms.atlassian.net/wiki'
-baseDir='/doc/sphinxdoc/build/json'
-configDir='/doc/sphinxdoc'
-downloadDir='_downloads'
-imgDir='_images'
-srcExt='.fjson'
-'''
-
-
 
 def createPageString(confluencePages, imagesPath, downloadsPath):
     pagesStr=''
@@ -37,8 +26,8 @@ def createPageString(confluencePages, imagesPath, downloadsPath):
 
 def createAttachmentsString(imagesPath, downloadsPath):
     attachmentsStr = ''
-    imagesStr = createImagesString('/home/jimmi/IdeaProjects/play-template/doc/sphinxdoc/build/json/_images')
-    downloadStr = createDownloadsString('/home/jimmi/IdeaProjects/play-template/doc/sphinxdoc/build/json/_downloads')
+    imagesStr = createImagesString(imagesPath)
+    downloadStr = createDownloadsString(downloadsPath)
     
     if downloadStr != '' or imagesStr != '':
         attachmentsStr = "%s\n  attachments:" % attachmentsStr
@@ -69,10 +58,10 @@ def createDownloadsString(downloadDir):
     return downloadStr
             
 
-def createConfigYaml(confluencePages, confluenceUrl, baseDir, downloadDir, imgDir, srcExt):
-    imagesPath = "%s/%s" % (baseDir, imgDir)
-    downloadsPath = "%s/%s" % (baseDir, downloadDir)
-    pageStr = createPageString(confluencePages)
+def createConfigYaml(confluencePages, confluenceUrl, basePath, downloadDir, imgDir, srcExt):
+    imagesPath = "%s/%s" % (basePath, imgDir)
+    downloadsPath = "%s/%s" % (basePath, downloadDir)
+    pageStr = createPageString(confluencePages, imagesPath, downloadsPath)
     
     yamlStr = (
         "version: 2\n"
@@ -82,14 +71,32 @@ def createConfigYaml(confluencePages, confluenceUrl, baseDir, downloadDir, imgDi
         "images_dir: %s\n"
         "source_ext: %s\n"
         "%s"
-        % (confluenceUrl, baseDir, downloadDir, imgDir, srcExt, pageStr)
+        % (confluenceUrl, basePath, downloadDir, imgDir, srcExt, pageStr)
     )
 
     return yamlStr
 
-print createConfigYaml(confluencePages, confluenceUrl, baseDir, downloadDir, imgDir, srcExt)
+def saveConfigYaml(configFilePath, configStr):
+    fh = open(configFilePath)
+    fh.write(configStr)
+    fh.close()
+
 if 'confluenceAuth' not in os.environ:
     sys.exit('Environment variable confluenceAuth is missing')
 
 if 'confluencePages' not in os.environ:
     sys.exit('Environment variable confluencePages is missing')
+
+if 'confluenceUrl' not in os.environ:
+    sys.exit('Environment variable confluenceUrl is missing')
+
+confluencePages = os.environ.get('confluencePages')
+confluenceUrl = os.environ.get('confluenceUrl')
+basePath = os.environ.get('basePath', '/doc/sphinxdoc/build/json')
+configPath = os.environ.get('configPath', '/doc/sphinxdoc')
+downloadDir = os.environ.get('downloadDir', '_downloads')
+imgDir = os.environ.get('imgDir', '_images')
+srcExt = os.environ.get('srcExt', '.fjson')
+
+configYamlStr = createConfigYaml(confluencePages, confluenceUrl, basePath, downloadDir, imgDir, srcExt)
+saveConfigYaml(configPath, configYamlStr)
