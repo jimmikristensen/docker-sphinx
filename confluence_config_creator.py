@@ -76,11 +76,19 @@ def createConfigYaml(confluencePages, confluenceUrl, basePath, downloadDir, imgD
 
     return yamlStr
 
-def saveConfigYaml(configFilePath, configStr):
-    fh = open(configFilePath)
+def writeConfigYaml(configFilePath, configStr):
+    filePath = configFilePath+"/config.yml"
+    try:
+        os.remove(filePath)
+    except OSError as e:
+        print "Unable to remove file: %s" % e
+
+    print "Writing new config file"
+    fh = open(filePath, "w")
     fh.write(configStr)
     fh.close()
 
+'''
 if 'confluenceAuth' not in os.environ:
     sys.exit('Environment variable confluenceAuth is missing')
 
@@ -90,6 +98,7 @@ if 'confluencePages' not in os.environ:
 if 'confluenceUrl' not in os.environ:
     sys.exit('Environment variable confluenceUrl is missing')
 
+confluenceAuth = os.environ.get('confluenceAuth')
 confluencePages = os.environ.get('confluencePages')
 confluenceUrl = os.environ.get('confluenceUrl')
 basePath = os.environ.get('basePath', '/doc/sphinxdoc/build/json')
@@ -97,6 +106,16 @@ configPath = os.environ.get('configPath', '/doc/sphinxdoc')
 downloadDir = os.environ.get('downloadDir', '_downloads')
 imgDir = os.environ.get('imgDir', '_images')
 srcExt = os.environ.get('srcExt', '.fjson')
+'''
+
+confluenceAuth = 'amlrckB0djIuZGs6SDMxMXN3aW5nZXI='
+confluencePages = 'README:160465230'
+confluenceUrl = 'https://tv2cms.atlassian.net/wiki'
+basePath = '/home/jimmi/IdeaProjects/play-template/doc/sphinxdoc/build/json'
+configPath = '/home/jimmi/IdeaProjects/play-template/doc/sphinxdoc'
+downloadDir = '_downloads'
+imgDir = '_images'
+srcExt = '.fjson'
 
 configYamlStr = createConfigYaml(confluencePages, confluenceUrl, basePath, downloadDir, imgDir, srcExt)
-saveConfigYaml(configPath, configYamlStr)
+writeConfigYaml(configPath, configYamlStr)
