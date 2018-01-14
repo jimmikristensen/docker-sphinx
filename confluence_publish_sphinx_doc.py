@@ -53,7 +53,7 @@ def createPageString(confluencePages, imagesFiles, downloadsFiles, jsonBuildPath
 def replaceImgWithAttachments(imageFiles, jsonFile):
     for imageFile in imageFiles:
         img = os.path.basename(imageFile)
-        replace_in_file(jsonFile, r'<p class=\\"plantuml\\">\\n<img src=\\"\.\./_images/%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
+        replaceInFile(jsonFile, r'<p class=\\"plantuml\\">\\n<img src=\\"\.\./_images/%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
 
 def createAttachmentsString(imagesFiles, downloadsFiles):
     '''
@@ -138,7 +138,7 @@ def writeConfigYaml(configFilePath, configStr):
     fh.write(configStr)
     fh.close()
 
-def replace_in_file(filename, pattern, replace):
+def replaceInFile(filename, pattern, replace):
     '''
     Perform a Python equivalent of in-place `sed` substitution: e.g.,
     `sed -i -e 's/'${pattern}'/'${repl}' "${filename}"`.
@@ -169,8 +169,8 @@ def main():
     confluencePages = os.environ.get('confluencePages')
     confluenceUrl = os.environ.get('confluenceUrl')
     jsonBuildPath = os.environ.get('jsonBuildPath', '/doc/sphinxdoc/build/json')
-    configPath = os.environ.get('configPath', '/doc/sphinxdoc')
-    configFilePath = configPath+'/config.yml'
+    sphinxdocPath = os.environ.get('sphinxdocPath', '/doc/sphinxdoc')
+    configFilePath = sphinxdocPath+'/config.yml'
     downloadDir = os.environ.get('downloadDir', '_downloads')
     imgDir = os.environ.get('imgDir', '_images')
     srcExt = os.environ.get('srcExt', '.fjson')
@@ -180,7 +180,7 @@ def main():
     print '- confluencePages: '+confluencePages
     print '- confluenceUrl: '+confluenceUrl
     print '- jsonBuildPath: '+jsonBuildPath
-    print '- configPath: '+configPath
+    print '- sphinxdocPath: '+sphinxdocPath
     print '- configFilePath: '+configFilePath
     print '- downloadDir: '+downloadDir
     print '- imgDir: '+imgDir
@@ -188,12 +188,6 @@ def main():
     
     configYamlStr = createConfigYaml(confluencePages, confluenceUrl, jsonBuildPath, downloadDir, imgDir, srcExt, configFilePath)
     writeConfigYaml(configFilePath, configYamlStr)
-
-    '''
-    filename=sys.argv[1]
-    img=sys.argv[2]
-    replace_in_file(filename, r'<p class=\\"plantuml\\">\\n<img src=\\"\.\./_images/%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
-    '''
     
     sys.argv = [sys.argv[0], '-F', configFilePath, '--auth', confluenceAuth]
     print ''
