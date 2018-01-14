@@ -7,7 +7,7 @@ import shutil
 import tempfile
 from conf_publisher import publish
 
-def createPageString(confluencePages, imagesPath, downloadsPath, configFilePath):
+def createPageString(confluencePages, imagesPath, downloadsPath, jsonBuildPath):
     '''
     Creates the page part of the config.yml
     Tages the confluencePages parameter in the format as a comma separated list 
@@ -31,9 +31,10 @@ def createPageString(confluencePages, imagesPath, downloadsPath, configFilePath)
         pageFile = pageParts[0]
         pageConfluenceId = pageParts[1]
         attachmentsStr = createAttachmentsString(imagesPath, downloadsPath)
+        jsonFile = "%s/%s.fjson" % (jsonBuildPath, pageFile)
 
-        if not os.path.isfile(configFilePath):
-            raise ValueError("File specified in environment (%s) does not exist" % configFilePath)
+        if not os.path.isfile(jsonFile):
+            raise ValueError("File specified (%s) does not exist" % jsonFile)
         
         pageStr = "- id: %s\n  source: %s" % (pageConfluenceId, pageFile)
         if pagesStr != '':
@@ -97,12 +98,12 @@ def createDownloadsString(downloadDir):
     return downloadStr
             
 
-def createConfigYaml(confluencePages, confluenceUrl, basePath, downloadDir, imgDir, srcExt, configFilePath):
+def createConfigYaml(confluencePages, confluenceUrl, jsonBuildPath, downloadDir, imgDir, srcExt, configFilePath):
     #Stitches the different parts of the config together to create a complete string
     
-    imagesPath = "%s/%s" % (basePath, imgDir)
-    downloadsPath = "%s/%s" % (basePath, downloadDir)
-    pageStr = createPageString(confluencePages, imagesPath, downloadsPath, configFilePath)
+    imagesPath = "%s/%s" % (jsonBuildPath, imgDir)
+    downloadsPath = "%s/%s" % (jsonBuildPath, downloadDir)
+    pageStr = createPageString(confluencePages, imagesPath, downloadsPath, jsonBuildPath)
     
     yamlStr = (
         "version: 2\n"
@@ -112,7 +113,7 @@ def createConfigYaml(confluencePages, confluenceUrl, basePath, downloadDir, imgD
         "images_dir: %s\n"
         "source_ext: %s\n"
         "%s"
-        % (confluenceUrl, basePath, downloadDir, imgDir, srcExt, pageStr)
+        % (confluenceUrl, jsonBuildPath, downloadDir, imgDir, srcExt, pageStr)
     )
 
     return yamlStr
@@ -160,7 +161,7 @@ def main():
     confluenceAuth = os.environ.get('confluenceAuth')
     confluencePages = os.environ.get('confluencePages')
     confluenceUrl = os.environ.get('confluenceUrl')
-    basePath = os.environ.get('basePath', '/doc/sphinxdoc/build/json')
+    jsonBuildPath = os.environ.get('jsonBuildPath', '/doc/sphinxdoc/build/json')
     configPath = os.environ.get('configPath', '/doc/sphinxdoc')
     configFilePath = configPath+'/config.yml'
     downloadDir = os.environ.get('downloadDir', '_downloads')
@@ -171,14 +172,14 @@ def main():
     print '- confluenceAuth: '+confluenceAuth
     print '- confluencePages: '+confluencePages
     print '- confluenceUrl: '+confluenceUrl
-    print '- basePath: '+basePath
+    print '- jsonBuildPath: '+jsonBuildPath
     print '- configPath: '+configPath
     print '- configFilePath: '+configFilePath
     print '- downloadDir: '+downloadDir
     print '- imgDir: '+imgDir
     print '- srcExt: '+srcExt
     
-    configYamlStr = createConfigYaml(confluencePages, confluenceUrl, basePath, downloadDir, imgDir, srcExt, configFilePath)
+    configYamlStr = createConfigYaml(confluencePages, confluenceUrl, jsonBuildPath, downloadDir, imgDir, srcExt, configFilePath)
     writeConfigYaml(configFilePath, configYamlStr)
 
     '''
