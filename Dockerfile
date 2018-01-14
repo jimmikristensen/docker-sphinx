@@ -27,7 +27,6 @@ RUN apk add --no-cache --virtual .ssl-deps \
 
 # Install Sphinx and extras
 RUN pip install --no-cache-dir \
-#      Sphinx \
       sphinx-confluence \
       sphinx_rtd_theme \
       sphinxcontrib-plantuml \
