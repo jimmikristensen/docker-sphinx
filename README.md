@@ -15,22 +15,24 @@ This image contains:
 ## Build
 
 ```sh
-git clone https://github.com/OSC/docker-sphinx.git
+git clone git@github.com:jimmikristensen/docker-sphinx.git
 cd docker-sphinx
-docker build --force-rm -t ohiosupercomputer/docker-sphinx .
+docker build --force-rm -t jkris/docker-sphinx .
 ```
 
 ## Install
 
 ```sh
-docker pull ohiosupercomputer/docker-sphinx
+docker pull jkris/docker-sphinx
 ```
 
 ## Usage
 
 ```sh
-docker run --rm -i -t -v "${PWD}:/doc" -u "$(id -u):$(id -g)" ohiosupercomputer/docker-sphinx <cmd>
+docker run --rm -i -t -v "${PWD}:/doc" -u "$(id -u):$(id -g)" jkris/docker-sphinx <cmd>
 ```
+
+
 
 ### Docker Compose
 
