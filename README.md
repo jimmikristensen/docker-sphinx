@@ -32,7 +32,7 @@ docker pull jkris/docker-sphinx
 docker run --rm -i -t -v "${PWD}:/doc" -u "$(id -u):$(id -g)" jkris/docker-sphinx <cmd>
 ```
 
-The volume mount ${PWD} should point to the dir containing the .rst files. You can execute any commands <cmd> within the docker container, read on to see some examples.
+The volume mount ${PWD} should point to the dir containing the .rst files. You can execute any commands <cmd> within the docker container - read on to see some examples.
 
 ### Docker Compose
 
@@ -63,7 +63,7 @@ docker-compose run --rm sphinx sphinx-quickstart
 docker-compose run --rm sphinx sphinx-quickstart  -p 'Project' -a 'Author' --sep --dot=. -v 1.0 --suffix=.rst --master=index --extensions=sphinxcontrib.plantuml --quiet /doc
 ```
 
-To see the full list of arguments of the quickstart command, see [Invocation of sphinx-quickstart](http://www.sphinx-doc.org/en/stable/invocation.html)
+To see the full list of arguments of the quickstart command, see [Invocation of sphinx-quickstart](http://www.sphinx-doc.org/en/stable/invocation.html).
 
 After the documentation structure has been setup, you can generate documentation in different formats.
 
@@ -82,3 +82,23 @@ An example could look like this:
 docker-compose run --rm sphinx conf_publisher config.yml --verbose --url <confluence url>/wiki --auth <confluence auth> --force)
 
 ```
+
+## Automatically Setup Sphinx and Confluence Config
+
+To make it easier for me to automate the process, I have created two python scripts.
+
+### sphinx_init.py
+
+This script will run the _sphinx-quickstart_ with the arguments necessary for setting up the sphinx project in quiet mode. 
+If run multiple times, it will cleanup before running again. It modifies the conf.py used by sphinx to use environment variables instead of configured values, 
+which enables you to set (and change) the values when the container is started.
+It will also add any .rst files you have in your directory to the master document (usually index.rst).
+
+### sphinx_confluence_publish.py
+
+The most important thing this script does for you, is to generate the config.yml file based on the environemtn variables
+you pass to it and the .rst documents in your directory. If you are using plantuml in your documents or have images or
+downloads in your sphinx project, these files will be added to the config.yml and attached the confluence page.
+Furthermore, the plantuml and images referenced in your .rst documents will be converted to confluence image references
+to the attachments, which means that they will be visible in confluence.
+
