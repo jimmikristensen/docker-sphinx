@@ -7,11 +7,11 @@ import tempfile
 import glob
 from sphinx import quickstart as sphinx_quickstart
 
+'''
+Perform a Python equivalent of in-place `sed` substitution: e.g.,
+`sed -i -e 's/'${pattern}'/'${repl}' "${filename}"`.
+'''
 def replaceInFile(filename, pattern, replace, greedy = False):
-    '''
-    Perform a Python equivalent of in-place `sed` substitution: e.g.,
-    `sed -i -e 's/'${pattern}'/'${repl}' "${filename}"`.
-    '''
     # For efficiency, precompile the passed regular expression.
     if greedy:
         pattern_compiled = re.compile(pattern, re.DOTALL)
@@ -26,7 +26,10 @@ def replaceInFile(filename, pattern, replace, greedy = False):
     #overwrite original file with temp file such that file attributes are preserved
     shutil.copystat(filename, tmp_file.name)
     shutil.move(tmp_file.name, filename)
-
+    
+'''
+Clean up sphinx directory
+'''
 def cleanUp(docPath):
     try:
         shutil.rmtree(docPath+"/build")
@@ -36,6 +39,9 @@ def cleanUp(docPath):
     except OSError as err:
         print("Unable to clean up", err)
 
+'''
+Replace hardcoded config params with params from environment
+'''
 def setupConfig(configPath):
     replaceInFile(configPath, r'# import os', 'import os')
     replaceInFile(configPath, r'project = .*', 'project = os.environ[\'projectName\']')
@@ -45,11 +51,20 @@ def setupConfig(configPath):
     replaceInFile(configPath, r'release = .*', 'release = os.environ[\'major\']+\".\"+os.environ[\'minor\']')
     replaceInFile(configPath, r'html_theme = \'.*\'', 'html_theme = \'sphinx_rtd_theme\'')
         
+'''
+Iterates through all markdown (usually .rst) file, sopies 
+them to the source dir and finally adds the files to the 
+master doc (usually index.rst) file under the line containing 
+":caption: Contents:" 
+'''
 def copyMarkdownFilesAndAppendToMaster(searchDir, fileSuffix, dstPath, masterDoc):
+    # Find all markdown files
     docFiles = glob.glob("%s/*%s" % (searchDir, fileSuffix))
     masterDocument = dstPath+'/'+masterDoc+fileSuffix
     for file in docFiles:
+        # copy all markdown files to source dir
         shutil.copy(file, dstPath)
+        # add the markdown files to the mast
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmp_file:
             with open(masterDocument) as src_file:
                 for line in src_file:
