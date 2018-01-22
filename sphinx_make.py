@@ -70,7 +70,7 @@ def replaceImagePath(sphinxdocPath, docSuffix, buildDir, imgDir):
             buildImageFiles = glob.glob(searchInBuildImageDir)
             for imageFile in buildImageFiles:
                 imageBasename = os.path.basename(imageFile)
-                imagePath = "images/%s" % imageBasename
+                imagePath = "assets/images/%s" % imageBasename
                 newImagePath = "%s/%s" % (imgDir, imageBasename)
                 print "Replaced image path %s in file %s to new path %s" % (imagePath, buildFile, newImagePath)
                 replaceInFile(buildFile, r'%s' % imagePath, '%s' % newImagePath)
@@ -84,7 +84,7 @@ def main():
     sphinxdocPath = os.environ.get('sphinxdocPath', '/doc/sphinxdoc')
     imgDir = os.environ.get('imgDir', '_images')
     docDir = os.environ.get('docDir', '/doc')
-    imageDir = "%s/images" % docDir
+    imageDir = "%s/assets/images" % docDir
     docSuffix = os.environ.get('docSuffix', '.rst')
     
     result = callSphinxMake(makeArg, sphinxdocPath)
