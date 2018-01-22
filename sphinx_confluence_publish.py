@@ -58,6 +58,7 @@ def replaceImgWithAttachments(imageFiles, jsonFile):
     for imageFile in imageFiles:
         img = os.path.basename(imageFile)
         replaceInFile(jsonFile, r'<p class=\\"plantuml\\">\\n<img src=\\"\.\./_images/%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
+        replaceInFile(jsonFile, r'<p class=\\"plantuml\\">\\n<img src=\\"_images/%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
 
 '''
 Creates the attachments part of the config.yml
