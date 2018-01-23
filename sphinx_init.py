@@ -60,6 +60,7 @@ master doc (usually index.rst) file under the line containing
 def copyMarkdownFilesAndAppendToMaster(searchDir, fileSuffix, dstPath, masterDoc):
     # Find all markdown files
     docFiles = glob.glob("%s/*%s" % (searchDir, fileSuffix))
+    docFiles.reverse()
     masterDocument = dstPath+'/'+masterDoc+fileSuffix
     for file in docFiles:
         # copy all markdown files to source dir
