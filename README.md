@@ -1,6 +1,7 @@
 # Docker Sphinx
 
 Docker image for [Sphinx](http://www.sphinx-doc.org/en/stable/).
+Cheatsheet for reStructuredText can be [found here](https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst)
 
 This image contains:
 
@@ -110,3 +111,4 @@ downloads in your sphinx project, these files will be added to the config.yml an
 Furthermore, the plantuml and images referenced in your .rst documents will be converted to confluence image references
 to the attachments, which means that they will be visible in confluence.
 
+### Sphinx Environment Variables
