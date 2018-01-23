@@ -34,7 +34,7 @@ docker run --rm -i -t -v "${PWD}:/doc" -u "$(id -u):$(id -g)" jkris/docker-sphin
 
 The volume mount ${PWD} should point to the dir containing the .rst files. You can execute any commands <cmd> within the docker container - read on to see some examples.
 
-To __automate the process__, please look at the Advanced Usage section or the example directory.
+To __automate the process__, please look at the [Advanced Usage](https://github.com/jimmikristensen/docker-sphinx#advanced-usage) section or the [example directory](https://github.com/jimmikristensen/docker-sphinx/tree/master/examples).
 
 ### Docker Compose
 
@@ -89,7 +89,7 @@ docker-compose run --rm sphinx conf_publisher config.yml --verbose --url <conflu
 
 To make the automation process easier for use in a deployment pipeline, I have created three python scripts.
 
-
+Please look at the [example](https://github.com/jimmikristensen/docker-sphinx/tree/master/examples) directory for further details.
 
 ### sphinx_init.py
 
