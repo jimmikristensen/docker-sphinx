@@ -1,0 +1,1169 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Markdown and reStructuredText &mdash; Sphinx Demo 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Sphinx Demo 0.1 documentation" href="index.html"/>
+        <link rel="next" title="PlantUML" href="10_plantuml.html"/>
+        <link rel="prev" title="ReST Quick Reference" href="09_quick-rst.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Sphinx Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">What is Sphinx?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_install.html">Installing Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_firststeps.html">First Steps with Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_rst.html">Using reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_code.html">Showing Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_rtd.html">ReadTheDocs and Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_advanced.html">Going Further into Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_appendix.html">Useful Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_quick-rst.html">ReST Quick Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Markdown and reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#the-common-denominator">The Common Denominator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#font-faces-emphasis-and-examples">Font Faces - Emphasis and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#escaping-markup">Escaping Markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-or-console-example-blocks">Code or Console Example Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#line-blocks-and-hard-line-breaks">Line Blocks and Hard Line Breaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#block-quotations">Block Quotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#titles-and-section-headers">Titles and Section headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bulleted-and-enumerated-lists">Bulleted and Enumerated Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hyperlink-urls">Hyperlink URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#horizontal-rules-transitions">Horizontal Rules (Transitions)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#incompatibilities">Incompatibilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#square-brackets">(Square) Brackets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solitary-backslash">Solitary Backslash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#not-incompatible-extensions">Not-Incompatible Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tables">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#markdown-extensions">Markdown Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#definition-lists">Definition Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fancy-list-numbers">Fancy list numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_plantuml.html">PlantUML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sphinx Demo</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Markdown and reStructuredText</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/10_markdown_and_rst.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="markdown-and-restructuredtext">
+<h1>Markdown and reStructuredText<a class="headerlink" href="#markdown-and-restructuredtext" title="Permalink to this headline">¶</a></h1>
+<p>GitHub supports several lightweight markup languages for documentation;
+the most popular ones (generally, not just at GitHub) are <strong>Markdown</strong>
+and <strong>reStructuredText</strong>.  Markdown is sometimes considered easier to
+use, and is often preferred when the purpose is simply to generate HTML.
+On the other hand, reStructuredText is more extensible and powerful,
+with native support (not just embedded HTML) for tables, as well as
+things like automatic generation of tables of contents.</p>
+<p>Unless you are embedding text into a programming language (especially
+Python doc comments, for which purpose reStructuredText was originally
+developed) you will probably choose to use Markdown for a small document
+(like this Gist once was).  But as you add more sections and features, you may
+decide that you want the power of reStructuredText.  To avoid having to
+convert all of your Markdown formatting when that happens, use this Gist
+as a guide to the markup syntax common to Markdown and reStructuredText.</p>
+<p>By using only the common subset shared by these two lightweight markup
+languages (largely from Setext, which inspired both of them) for your
+documents, you can eliminate the need for conversion.  Even if you also
+use features that are specific to one or the other, using the common
+subset wherever possible allows for painless cut &amp; paste between them.</p>
+<p>Another advantage of restricting yourself to the common subset described
+here is that the resulting source is more likely to be parsed the same way
+by different Markdown processors, which may handle some details like
+indentation slightly differently.</p>
+<p>If you have already used Markdown-specific syntax, or you just don’t
+want to limit yourself to the (admittedly very limited) intersection of
+functionality in the subset, you can use <strong>Pandoc</strong> to convert Markdown
+into reStructuredText - the online converter at
+&lt;<a class="reference external" href="http://johnmacfarlane.net/pandoc/try">http://johnmacfarlane.net/pandoc/try</a>&gt; is handy if you don’t happen to
+have Haskell installed.  (In fact, you may find the extended Markdown
+supported by Pandoc adds enough functionality that you don’t need to use
+reStructuredText at all - at least, once you get Haskell and Pandoc
+installed.)</p>
+</div>
+<div class="section" id="the-common-denominator">
+<h1>The Common Denominator<a class="headerlink" href="#the-common-denominator" title="Permalink to this headline">¶</a></h1>
+<p>The basics of text formatting are common to both, a blank line (it may
+contain spaces or tabs, but nothing else) is used to separate paragraphs
+and everything within a paragraph “flows” and is wrapped to the display
+width.  Be sure to avoid initial indentation (either of an entire
+paragraph or just the first line) for normal text, as indentation is
+significant to both Markdown and reStructuredText, but in different
+ways.</p>
+<p>When writing text, you should try to wrap source lines to 72
+characters - but only when initially entering them - avoid re-wrapping
+text when you edit it later, to limit the number of “insignificant
+changes” in your version control system (you <em>are</em> using one, right?!).
+Feel free to use two spaces after the period at the end of a sentence
+(or not) if that is useful for your text editor - I’m looking at you,
+Emacs - since multiple spaces are treated the same as a single space.
+Similarly, multiple blank lines are treated just like one blank line;
+you may want to use multiple blank lines at the end of a section.</p>
+<div class="section" id="font-faces-emphasis-and-examples">
+<h2>Font Faces - Emphasis and Examples<a class="headerlink" href="#font-faces-emphasis-and-examples" title="Permalink to this headline">¶</a></h2>
+<p>Within paragraphs, inline markup provides basic formatting to add
+emphasis to particular words or phrases, most commonly by making them
+<em>italic</em> or <strong>bold</strong> (depending on the font, italics are often rendered
+with an oblique face instead).  In technical writing, <code class="docutils literal"><span class="pre">monospaced</span>
+<span class="pre">text</span></code> may be used to highlight program or function names, or for very
+short snippets of code.</p>
+<p>As with many types of formatting, Markdown provides multiple ways of
+specifying font faces, one of which is also used by reStructuredText:
+italics are marked with one asterisk (<code class="docutils literal"><span class="pre">*</span></code>) and bold face with two.  There
+must be whitespace or other punctuation before the leading asterisks,
+and after the trailing ones; furthermore there must be no space between
+the asterisks and the text being emphasized.  Although Markdown supports
+nesting bold and italic, reStructuredText does not (this is one of the
+rare cases where Markdown is more powerful, as there is no way to
+represent bold italics in reStructuredText).</p>
+<p>Monospaced text is marked with two backquotes “``” instead of asterisks;
+no bold or italic is possible within it (asterisks just represent
+themselves), although in some contexts, code syntax highlighting may be
+applied.  Note that in monospaced text, multiple spaces are <em>not</em>
+collapsed, but are preserved; however, flow and wrapping <em>do</em> occur, and
+any number of spaces may be replaced by a line break.  Markdown allows
+monospaced text within bold or italic sections, but not vice versa -
+reStructuredText allows neither.  In summary, the common inline markup
+is the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Mark *italic text* with one asterisk, **bold text** with two.
+For ``monospaced text``, use two &quot;backquotes&quot; instead.
+</pre></div>
+</div>
+<p>Mark <em>italic text</em> with one asterisk, <strong>bold text</strong> with two.
+For <code class="docutils literal"><span class="pre">monospaced</span> <span class="pre">text</span></code>, use two “backquotes” instead.</p>
+<hr class="docutils" />
+<p>(Markdown allows a single backquote to indicate monospaced text, however
+double backquotes ar better, since they allow for embedded backquotes
+and are required for reStructuredText.)</p>
+</div>
+<div class="section" id="escaping-markup">
+<h2>Escaping Markup<a class="headerlink" href="#escaping-markup" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you may want to use markup characters just as themselves,
+without any special interpretation.  Within double backquotes used to mark
+monospaced text (or in code blocks as described below), markup characters
+are not treated specially, but in other contexts, you must precede markup
+characters with a backslash (\) to escape them (this applies to the
+backslash character as well):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>\<span class="o">*</span><span class="n">This</span>\<span class="o">*</span> <span class="ow">is</span> <span class="ow">not</span> <span class="o">*</span><span class="n">italic</span><span class="o">*</span> <span class="o">-</span> \\<span class="n">My</span> <span class="n">Pictures</span>\\ <span class="ow">is</span> <span class="n">a</span> <span class="n">Windows</span> <span class="n">folder</span>
+</pre></div>
+</div>
+<p>*This* is not <em>italic</em> - \My Pictures\ is a Windows folder</p>
+<hr class="docutils" />
+<p>While reStructuredText will treat a backslash before any non-whitespace
+character as an escape, Markdown only treats backslash as an escape when
+it precedes one of the following characters:</p>
+<ul class="simple">
+<li>\   backslash</li>
+<li>`   backtick</li>
+<li>*   asterisk</li>
+<li>_   underscore</li>
+<li>{}  curly braces</li>
+<li>[]  square brackets</li>
+<li>()  parentheses</li>
+<li>#   hash mark</li>
+<li>+   plus sign</li>
+<li>-   minus sign (hyphen)</li>
+<li>.   dot</li>
+<li>!   exclamation mark</li>
+</ul>
+<p>For compatibility, only use backslash before one of these characters, and
+be sure to escape any backslashes that you want to appear in the output.</p>
+</div>
+<div class="section" id="code-or-console-example-blocks">
+<h2>Code or Console Example Blocks<a class="headerlink" href="#code-or-console-example-blocks" title="Permalink to this headline">¶</a></h2>
+<p>If you have example code or console text that you want to appear with
+all line breaks and relative indentation preserved, in a monospaced text
+block, there is no common format for Markdown and reStructuredText, but
+you can combine the formatting for both of them by ending one paragraph
+with a double colon <code class="docutils literal"><span class="pre">::</span></code> (for reStructuredText) and indenting the next
+one by four or more spaces (for Markdown) to make it appear in
+monospaced font without flow or word-wrapping:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>A normal paragraph ending with ``::`` will flow and be word-wrapped::
+
+    If the next paragraph is indented by four or more spaces, it will be monospaced text, without flow (or even wrapping in some non-print cases.)
+
+    You can have multiple paragraphs like this, as long as they
+    are all indented by the same amount.
+</pre></div>
+</div>
+<p>A normal paragraph ending with <code class="docutils literal"><span class="pre">::</span></code> will flow and be word-wrapped:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">paragraph</span> <span class="ow">is</span> <span class="n">indented</span> <span class="n">by</span> <span class="n">four</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">spaces</span><span class="p">,</span> <span class="n">it</span> <span class="n">will</span> <span class="n">be</span> <span class="n">monospaced</span> <span class="n">text</span><span class="p">,</span> <span class="n">without</span> <span class="n">flow</span> <span class="p">(</span><span class="ow">or</span> <span class="n">even</span> <span class="n">wrapping</span> <span class="ow">in</span> <span class="n">some</span> <span class="n">non</span><span class="o">-</span><span class="nb">print</span> <span class="n">cases</span><span class="o">.</span><span class="p">)</span>
+
+<span class="n">You</span> <span class="n">can</span> <span class="n">have</span> <span class="n">multiple</span> <span class="n">paragraphs</span> <span class="n">like</span> <span class="n">this</span><span class="p">,</span> <span class="k">as</span> <span class="n">long</span> <span class="k">as</span> <span class="n">they</span>
+<span class="n">are</span> <span class="nb">all</span> <span class="n">indented</span> <span class="n">by</span> <span class="n">the</span> <span class="n">same</span> <span class="n">amount</span><span class="o">.</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>(We cheat a little bit here, Markdown does not interpret the
+double-colon, but displays it as-is, whereas reStructuredText displays
+just a single colon, but this is not too noticeable or annoying, as long
+as you remember to use the double colon in your source.)</p>
+</div>
+<div class="section" id="line-blocks-and-hard-line-breaks">
+<h2>Line Blocks and Hard Line Breaks<a class="headerlink" href="#line-blocks-and-hard-line-breaks" title="Permalink to this headline">¶</a></h2>
+<p>You may want to preserve line breaks in text blocks but don’t want them
+in monospaced text; common cases are verse (poetry or lyrics), street
+addresses, and unadorned lists without bullets or numbering.  Markdown
+and reStructuredText use completely different syntax for this, but you
+can combine the markup for both reStructuredText line blocks and
+Markdown hard line breaks by starting each line with a vertical bar (<code class="docutils literal"><span class="pre">|</span></code>)
+and a space and ending it with two spaces.  For line breaks in the
+source you don’t want to preserve, omit the two spaces before the line
+break and start the next line with one to three spaces instead.  Put a
+blank line before the start and after the end of every line block.</p>
+<p>Line blocks were added to reStructuredText in Docutils version 0.3.5
+and there are some reStructuredText formatters that do not support
+them; notably the GitHub README markup does not display them correctly.</p>
+<p>These line blocks can also contain inline markup (which in a code
+example block might be displayed literally), but keep any markup within
+each line, since emphasis starting on one line and ending on another
+applies to vertical bars between them, which appear in Markdown output:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>| *Yuku haru ya*
+| *tori naki uo no*
+| *me wa namida*
+| -- **Matsuo Bashō**, The Narrow Road to Oku (*Oku no Hosomichi*),
+ Tokyo, 1996, p. 23 (Translation: Donald Keene)
+| Spring is passing by!
+| Birds are weeping and the eyes
+| of fish fill with tears.
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><em>Yuku haru ya</em></div>
+<div class="line"><em>tori naki uo no</em></div>
+<div class="line"><em>me wa namida</em></div>
+<div class="line">– <strong>Matsuo Bashō</strong>, The Narrow Road to Oku (<em>Oku no Hosomichi</em>),
+Tokyo, 1996, p. 23 (Translation: Donald Keene)</div>
+<div class="line">Spring is passing by!</div>
+<div class="line">Birds are weeping and the eyes</div>
+<div class="line">of fish fill with tears.</div>
+</div>
+<hr class="docutils" />
+<p>(Again, we cheat a bit, since the Markdown output includes the vertical
+bars; but at least they make it very clear when you end a line without
+the required two spaces, something that is quite easy to do as there is
+usually no visual indication of whether they are there or not.)</p>
+</div>
+<div class="section" id="block-quotations">
+<h2>Block Quotations<a class="headerlink" href="#block-quotations" title="Permalink to this headline">¶</a></h2>
+<p>When quoting long blocks of text from another writer, it is common
+(especially in the context of e-mail) to set it off from the main text
+by indenting it, possibly adding a vertical quotation line along the
+left margin.  Markdown and reStructuredText use different syntax for
+this, but you can combine their markup for block quotes by starting the
+first line of a quotation with one space and a right angle bracket
+(<code class="docutils literal"><span class="pre">&gt;</span></code>), indenting all the remaining lines by one space as well (do not
+add angle brackets to them).</p>
+<p>Note that in reStructuredText, a block quotation cannot directly follow
+a code example block - if it does it will be treated as part of the
+example.  A normal paragraph or an “empty comment” (a line with only two
+periods (<code class="docutils literal"><span class="pre">..</span></code>) and blank lines before and after it) must separate
+them.</p>
+<p>Every block quotation must have a blank line before and after it; they
+can use the same inline markup as ordinary paragraphs.  Nested
+quotations are possible by following a block quotation with another that
+starts with two spaces and two right angle brackets; this allows up to
+three levels of quotation (a fourth level is not possible since Markdown
+treats four leading spaces as a code example).  While two right angle
+brackets can be adjacent, three adjacent right angle brackets are a
+doctest block (a special kind of code example block) in reStructuredText
+and must have spaces between them to prevent that interpretation:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&gt; A block quotation will wrap and flow, and can have *inline*
+``markup`` just like a regular paragraph.  It will be indented on
+the left (and possibly the right) margins, and may have a vertical
+quotation line on the left.
+
+ &gt;&gt; With two spaces and two right angle brackets, a following block
+ quotation will be doubly indented, and will have a second vertical
+ quotation line along the left if quotation lines are generated.
+
+  &gt; &gt;&gt; A third level of quotation is the maximum level possible.
+</pre></div>
+</div>
+<blockquote>
+<div><p>&gt; A block quotation will wrap and flow, and can have <em>inline</em>
+<code class="docutils literal"><span class="pre">markup</span></code> just like a regular paragraph.  It will be indented on
+the left (and possibly the right) margins, and may have a vertical
+quotation line on the left.</p>
+<blockquote>
+<div><p>&gt;&gt; With two spaces and two right angle brackets, a following block
+quotation will be doubly indented, and will have a second vertical
+quotation line along the left if quotation lines are generated.</p>
+<blockquote>
+<div>&gt; &gt;&gt; A third level of quotation is the maximum level possible.</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<hr class="docutils" />
+<p>(The cheat here is that the reStructuredText output includes the right
+angle bracket(s) on the first line in addition to the indentation; this
+is not ideal, but is generally acceptable when used for a quotation, and
+not just indented text.)</p>
+</div>
+<div class="section" id="titles-and-section-headers">
+<h2>Titles and Section headers<a class="headerlink" href="#titles-and-section-headers" title="Permalink to this headline">¶</a></h2>
+<p>Both Markdown and reStructuredText allow you to structure your document
+by adding header titles for sections and subsections.  While they each
+support a large number of levels of headers in different ways, the
+common subset only has two levels: titles, formed by underlining the
+text with <code class="docutils literal"><span class="pre">==</span></code>, and subtitles, formed by underlining with <code class="docutils literal"><span class="pre">--</span></code>.  The
+underlining must be on the very next line, and be at least
+as long as the (sub)title:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Section</span> <span class="n">Title</span>
+<span class="o">=============</span>
+<span class="n">The</span> <span class="n">Common</span> <span class="n">Denominator</span>
+<span class="o">======================</span>
+
+<span class="n">Subsection</span> <span class="n">Subtitle</span>
+<span class="o">-------------------</span>
+<span class="n">Titles</span> <span class="ow">and</span> <span class="n">Section</span> <span class="n">headers</span>
+<span class="o">--------------------------</span>
+</pre></div>
+</div>
+<p>Note that a blank line after the underlining is optional, but a blank
+line before the (sub)title is required.</p>
+</div>
+<div class="section" id="bulleted-and-enumerated-lists">
+<h2>Bulleted and Enumerated Lists<a class="headerlink" href="#bulleted-and-enumerated-lists" title="Permalink to this headline">¶</a></h2>
+<p>In addition to (sub)section headers, both Markdown and reStructuredText
+support itemized lists; these can be numbered (enumerated) or unnumbered
+(bulleted) and the two types of lists can be nested within themselves
+and each other.  List items are lines starting (possibly after spaces
+for indentation) with a bullet symbol (<code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">-</span></code>, or <code class="docutils literal"><span class="pre">+</span></code>) for bulleted
+lists, or a number and a period (<code class="docutils literal"><span class="pre">1.</span></code>) for enumerated lists; in both
+cases followed by one or more spaces and then the item text.  Although
+reStructuredText supports other symbols for bulleted lists and
+parentheses instead of period for enumerated lists, as well as <code class="docutils literal"><span class="pre">#</span></code> in
+place of the number for auto-enumeration, Markdown only supports the
+subset described above.</p>
+<p>The spaces after the symbol or number determine the indentation needed
+for additional item text on continuation lines or following paragraphs,
+as well as the symbols or numbers for sub-lists.  Symbol or number indentation
+of all items at any nesting level must be the same (even for long
+enumerated lists with two-digit numbers) but the indentation of the text
+of different items need not be the same.</p>
+<p>If a list item contains multiple paragraphs (separated by blank lines)
+or sub-lists, the indentation of the item text must be at least four
+spaces more than the item symbol or number; this usually requires extra
+spaces between the number and period (or symbol) and the item text.</p>
+<p>A blank line is required before the first item and after the last item
+in every top-level list, but is optional between items.  A blank line
+is also required by reStructuredText before the first item of a
+sub-list; omitting it sometimes appears to work, but only because the
+sub-list is indented more than the item text.  This extra indentation
+may cause the item text to be treated as part of a definition list and
+displayed in bold; in other cases, it causes the sub-list to be
+wrapped within a block quote, causing both the left and right margins
+to move inwards and creating a double-indent effect.</p>
+<p>A sub-list without a preceding blank line can also work if there is no
+item text preceding the sub-list; but this generates odd-looking
+output that is confusing to human readers, with the first bullet or
+number of the sub-list on the same line as the bullet or number of the
+item in the enclosing list.</p>
+<p>While Markdown does not require a blank line before a sub-list, a blank line
+between items changes the inter-item spacing (typically by creating
+<code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> paragraph tags).  For consistent results, do not use blank lines
+between items unless you must (for sub-lists), in which case use blank
+lines between <em>all</em> the items at the same level (sub-list items do not
+require the blank lines unless there are sub-sub-lists).</p>
+<p>Markdown ignores the actual numbers given for enumerated lists and
+always renumbers them starting with 1, but reStructuredText requires
+that the numbers be in sequential order; the number of the first item
+may or may not be preserved.  For compatibility, always start enumerated
+lists with 1 and number them sequentially.  You should never mix
+enumerated and bulleted items (or different bullet symbols) at the same
+level; reStructuredText will reject it with an error (or, if there is a
+blank line between them, create a new list).  On the other hand,
+Markdown processors will combine adjacent bulleted and enumerated lists
+(using the formatting of the first list); to create separate lists it is
+not enough to have a blank line, there must be a non-list paragraph
+between them.</p>
+<p>Because Markdown formatting requires additional indentation for extra
+paragraphs of item text in lists, the approach for monospaced paragraphs
+given above in <em>Code or Console Example Blocks</em> requires additional
+indentation of at least <strong>eight</strong> spaces (not just four) for example
+blocks in lists.</p>
+<p>Finally, it is a <em>very</em> good idea to make sure that your document
+source does not contain any tab characters, especially when working
+with multiple levels of sub-lists.  Configure your text editor to
+expand all tabs into spaces; this will help to ensure that the initial
+indentation is consistent and avoid errors if another editor
+interprets the tabs differently.</p>
+<p>The following two lists summarize and provide examples of the rules for
+lists compatible with Markdown and reStructuredText:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>*   Mark bulleted lists with one of three symbols followed by a space:
+
+    1. asterisk (``*``)
+    2. hyphen (``-``)
+    3. plus sign (``+``)
+
+* Mark enumerated lists with a number, period (``.``) and a space.
+
+* The choice of symbol does not affect the output bullet style,
+  which is solely determined by nesting level.
+  Items can be continued on following lines indented at the same
+  level as the item text on the first line, and will flow and wrap
+  normally.
+
+*   The source indentation of item text can vary for different items
+    (but continuation lines must be indented by the same amount as
+    the item text that they are continuing).
+
+    Additional paragraphs of item text (after a blank line) also
+    require this indentation, with the extra requirement that it be
+    four to seven spaces more than the item symbol or number.
+
+    * These indentation requirements are the same for sub-list items
+      (but apply to their symbol or number, not their item text).
+
+*   Blank lines between list items are optional, avoid them.
+
+    + If you *do* use them (for items with sub-lists or extra
+      paragraphs) put blank lines between *all* items at that level.
+
+A non-list paragraph is required to separate adjacent enumerated and
+bulleted lists, to keep Markdown from merging the second one into the
+first (and using the first style for both).
+
+1. Always put a blank line before the start of a list or sub-list.
+
+2. Use the same bullet symbol for all items in a bulleted list.
+
+3. Always start enumerated lists with 1.
+
+4. Use sequentially increasing numbers for succeeding list items.
+
+5.  Do not mix numbers and/or different bullet symbols at one level
+
+    * (but this is okay for different levels or separate sublists).
+
+6.  Indent sub-lists by the same amount as the item text;
+    this must be 4-7 spaces more than the symbol or number.
+
+    1.  if enumerated, always start them with 1.
+
+        + (the same rules apply to sub-sub-lists, etcetera)
+
+    Additional non-sub-list paragraphs require the same indentation;
+    example blocks (after double colon ``::``) must be indented at
+    least eight spaces more than the symbol or number, like this::
+
+        * item text::
+
+                code block
+
+7.  Indent symbols or numbers the same amount for any one list level.
+
+    - (top-level list items should not have any leading indentation)
+
+8.  Align two-digit enumerated items by first digit, not the period.
+
+9.  Don&#39;t put leading zeros on enumerated items to align the periods
+
+    * (use spaces after period if you want to align the item text in source).
+
+10. Make sure there are no tab characters in initial indentation.
+
+11. Always put a blank line after the end of a (top-level) list.
+</pre></div>
+</div>
+<ul>
+<li><p class="first">Mark bulleted lists with one of three symbols followed by a space:</p>
+<ol class="arabic simple">
+<li>asterisk (<code class="docutils literal"><span class="pre">*</span></code>)</li>
+<li>hyphen (<code class="docutils literal"><span class="pre">-</span></code>)</li>
+<li>plus sign (<code class="docutils literal"><span class="pre">+</span></code>)</li>
+</ol>
+</li>
+<li><p class="first">Mark enumerated lists with a number, period (<code class="docutils literal"><span class="pre">.</span></code>) and a space.</p>
+</li>
+<li><p class="first">The choice of symbol does not affect the output bullet style,
+which is solely determined by nesting level.
+Items can be continued on following lines indented at the same
+level as the item text on the first line, and will flow and wrap
+normally.</p>
+</li>
+<li><p class="first">The source indentation of item text can vary for different items
+(but continuation lines must be indented by the same amount as
+the item text that they are continuing).</p>
+<p>Additional paragraphs of item text (after a blank line) also
+require this indentation, with the extra requirement that it be
+four to seven spaces more than the item symbol or number.</p>
+<ul class="simple">
+<li>These indentation requirements are the same for sub-list items
+(but apply to their symbol or number, not their item text).</li>
+</ul>
+</li>
+<li><p class="first">Blank lines between list items are optional, avoid them.</p>
+<ul class="simple">
+<li>If you <em>do</em> use them (for items with sub-lists or extra
+paragraphs) put blank lines between <em>all</em> items at that level.</li>
+</ul>
+</li>
+</ul>
+<p>A non-list paragraph is required to separate adjacent enumerated and
+bulleted lists, to keep Markdown from merging the second one into the
+first (and using the first style for both).</p>
+<ol class="arabic">
+<li><p class="first">Always put a blank line before the start of a list or sub-list.</p>
+</li>
+<li><p class="first">Use the same bullet symbol for all items in a bulleted list.</p>
+</li>
+<li><p class="first">Always start enumerated lists with 1.</p>
+</li>
+<li><p class="first">Use sequentially increasing numbers for succeeding list items.</p>
+</li>
+<li><p class="first">Do not mix numbers and/or different bullet symbols at one level</p>
+<ul class="simple">
+<li>(but this is okay for different levels or separate sublists).</li>
+</ul>
+</li>
+<li><p class="first">Indent sub-lists by the same amount as the item text;
+this must be 4-7 spaces more than the symbol or number.</p>
+<ol class="arabic simple">
+<li>if enumerated, always start them with 1.<ul>
+<li>(the same rules apply to sub-sub-lists, etcetera)</li>
+</ul>
+</li>
+</ol>
+<p>Additional non-sub-list paragraphs require the same indentation;
+example blocks (after double colon <code class="docutils literal"><span class="pre">::</span></code>) must be indented at
+least eight spaces more than the symbol or number, like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">item</span> <span class="n">text</span><span class="p">::</span>
+
+        <span class="n">code</span> <span class="n">block</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Indent symbols or numbers the same amount for any one list level.</p>
+<ul class="simple">
+<li>(top-level list items should not have any leading indentation)</li>
+</ul>
+</li>
+<li><p class="first">Align two-digit enumerated items by first digit, not the period.</p>
+</li>
+<li><p class="first">Don’t put leading zeros on enumerated items to align the periods</p>
+<ul class="simple">
+<li>(use spaces after period if you want to align the item text in source).</li>
+</ul>
+</li>
+<li><p class="first">Make sure there are no tab characters in initial indentation.</p>
+</li>
+<li><p class="first">Always put a blank line after the end of a (top-level) list.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="hyperlink-urls">
+<h2>Hyperlink URLs<a class="headerlink" href="#hyperlink-urls" title="Permalink to this headline">¶</a></h2>
+<p>Markdown and reStructuredText use different and incompatible syntax for
+arbitrary text hyperlinks, but reStructuredText will generate hyperlinks
+for e-mail addresses or URLs, and Markdown will do so as well if they
+are enclosed in angle brackets (<code class="docutils literal"><span class="pre">&lt;&gt;</span></code>).  Some Markdown processors do
+not require the angle brackets, but there is little reason to omit them,
+as they hardly affect readability, and explicitly specify whether or not
+punctuation at the end of the URL is really part of the link.  Even
+relative URLs can be used if the protocol is explicitly specified:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">latest</span> <span class="n">version</span> <span class="n">of</span> <span class="n">this</span> <span class="n">document</span> <span class="n">can</span> <span class="n">be</span> <span class="n">found</span> <span class="n">at</span>
+<span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gist</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">1855764</span><span class="o">&gt;</span><span class="p">;</span> <span class="k">if</span> <span class="n">you</span> <span class="n">are</span> <span class="n">viewing</span> <span class="n">it</span> <span class="n">there</span> <span class="p">(</span><span class="n">via</span>
+<span class="n">HTTPS</span><span class="p">),</span> <span class="n">you</span> <span class="n">can</span> <span class="n">download</span> <span class="n">the</span> <span class="n">Markdown</span><span class="o">/</span><span class="n">reStructuredText</span> <span class="n">source</span> <span class="n">at</span>
+<span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">/</span><span class="n">gists</span><span class="o">/</span><span class="mi">1855764</span><span class="o">/</span><span class="n">download</span><span class="o">&gt;.</span>  <span class="n">You</span> <span class="n">can</span> <span class="n">contact</span> <span class="n">the</span> <span class="n">author</span> <span class="n">via</span>
+<span class="n">e</span><span class="o">-</span><span class="n">mail</span> <span class="n">at</span> <span class="o">&lt;</span><span class="n">alex</span><span class="o">.</span><span class="n">dupuy</span><span class="nd">@mac</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;.</span>
+</pre></div>
+</div>
+<p>The latest version of this document can be found at
+&lt;<a class="reference external" href="https://gist.github.com/1855764">https://gist.github.com/1855764</a>&gt;; if you are viewing it there (via
+HTTPS), you can download the Markdown/reStructuredText source at
+&lt;<a class="reference external" href="https:/gists/1855764/download">https:/gists/1855764/download</a>&gt;.  You can contact the author via
+e-mail at &lt;<a class="reference external" href="mailto:alex&#46;dupuy&#37;&#52;&#48;mac&#46;com">alex<span>&#46;</span>dupuy<span>&#64;</span>mac<span>&#46;</span>com</a>&gt;.</p>
+<hr class="docutils" />
+<p>(Using the URLs directly for hyperlinks also means that even if a
+Markdown processor has link generation disabled, a human reader can
+always copy and paste the URL.)</p>
+</div>
+<div class="section" id="horizontal-rules-transitions">
+<h2>Horizontal Rules (Transitions)<a class="headerlink" href="#horizontal-rules-transitions" title="Permalink to this headline">¶</a></h2>
+<p>You can create a horizontal rule (a “transition” in reStructuredText
+terminology) by placing four or more hyphens (<code class="docutils literal"><span class="pre">-</span></code>), asterisks (<code class="docutils literal"><span class="pre">*</span></code>),
+or underscores (<code class="docutils literal"><span class="pre">_</span></code>) on a line by themselves, with blank lines before
+and after and no indentation (trailing spaces are okay, but not leading
+spaces).  Although Markdown requires only three, and allows spaces
+between them, reStructuredText requires four repeated punctuation
+characters.  Also, reStructuredText requires paragraphs before and after
+the transition (code blocks or enumerated/bulleted list items are okay,
+but section headers are not).</p>
+<hr class="docutils" />
+<p>Each of the following lines will produce a horizontal rule like the
+one above:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">****</span>
+<span class="n">______</span>
+<span class="o">----------</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="incompatibilities">
+<h1>Incompatibilities<a class="headerlink" href="#incompatibilities" title="Permalink to this headline">¶</a></h1>
+<p>There are a few cases where Markdown or reStructuredText will interpret
+something as markup, although it is treated as ordinary text by the other,
+and these differences can cause problems for a document that is intended
+to be processed by either formatter.  In these cases, the solution is
+usually to add a backslash before the markup character so that it is not
+treated specially by either markup processor.</p>
+<div class="section" id="square-brackets">
+<h2>(Square) Brackets<a class="headerlink" href="#square-brackets" title="Permalink to this headline">¶</a></h2>
+<p>While the appearance of square brackets - [] - in text is not treated
+specially by reStructuredText, some Markdown processors may attempt to
+format the contents as a hyperlink, even if there is no following
+parenthetical URL or bracketed reference.  To prevent this, put a
+backslash before the opening square bracket (you can also put it before
+the closing square bracket, but this is optional).</p>
+</div>
+<div class="section" id="solitary-backslash">
+<h2>Solitary Backslash<a class="headerlink" href="#solitary-backslash" title="Permalink to this headline">¶</a></h2>
+<p>Although Markdown only treats backslash as an escape character when it
+precedes certain characters, reStructuredText treats backslash as an
+escape unless it is followed by whitespace (in which case it removes the
+backslash <em>and</em> the whitespace).  Because of this, a single backslash
+followed by whitespace, or a “C” escape like \n, that appears in
+Markdown will be “eaten” by reStructuredText.  To prevent this, make sure
+to always escape any backslashes that you want to appear in the output.</p>
+</div>
+</div>
+<div class="section" id="not-incompatible-extensions">
+<h1>Not-Incompatible Extensions<a class="headerlink" href="#not-incompatible-extensions" title="Permalink to this headline">¶</a></h1>
+<p>Both Markdown and reStructuredText have markup that is not interpreted
+by the other (either in the same or in an incompatible way), and which
+is not too painful to read when rendered as ordinary text.  Hyperlink
+URLs (as noted above) fall into this category for some basic Markdown
+implementations that do not implement URL recognition.</p>
+<div class="section" id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
+<p>Markdown has no support for tables (one of its biggest weaknesses); to
+create them requires embedded HTML (if that is even allowed).  Some
+variants have added table support (notably Pandoc Markdown, PHP
+Markdown Extra, and GitHub Flavored Markdown [GFM]) but the syntax is
+not consistent between all of them.  The reStructuredText format has
+the additional advantage of being quite readable in original source
+form (basic monospaced ASCII layout).  If you indent reStructuredText
+tables by four or more spaces (and make sure that the previous paragraph
+does <em>not</em> end with a double colon <code class="docutils literal"><span class="pre">::</span></code>) you will get a nicely
+formatted table in reStructuredText and a readable ASCII table in
+Markdown.  There are two flavors of table markup in reStructuredText,
+grid tables and simple tables.  Grid tables are trickier to generate, but
+more flexible, and look nicer in source format:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Make sure previous paragraph does not end with ``::``.
+
++-------+----------+------+
+| Table Headings   | Here |
++-------+----------+------+
+| Sub   | Headings | Too  |
++=======+==========+======+
+| cell  | column spanning |
++ spans +----------+------+
+| rows  | normal   | cell |
++-------+----------+------+
+| multi | * cells can be  |
+| line  | * formatted     |
+| cells | * paragraphs    |
+| too   |                 |
++-------+-----------------+
+</pre></div>
+</div>
+<p>Make sure previous paragraph does not end with <code class="docutils literal"><span class="pre">::</span></code>.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="43%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Table Headings</th>
+<th class="head">Here</th>
+</tr>
+<tr class="row-even"><th class="head">Sub</th>
+<th class="head">Headings</th>
+<th class="head">Too</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="2">cell
+spans
+rows</td>
+<td colspan="2">column spanning</td>
+</tr>
+<tr class="row-even"><td>normal</td>
+<td>cell</td>
+</tr>
+<tr class="row-odd"><td>multi
+line
+cells
+too</td>
+<td colspan="2"><ul class="first last simple">
+<li>cells can be</li>
+<li>formatted</li>
+<li>paragraphs</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<hr class="docutils" />
+<p>A significant advantage of grid tables is that Pandoc Markdown supports
+them, which is <em>not</em> the case for simple tables, for which Pandoc uses a
+somewhat similar but incompatible format.  However, for Pandoc to
+actually process the formatting, the four space indentation of the grid
+tables must be removed (to prevent monospaced code block formatting).</p>
+<p>Simple tables are easier, but cells must be on a single line and cannot
+span rows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">=====</span> <span class="o">=========</span> <span class="o">=====</span>
+<span class="n">Table</span> <span class="n">Headings</span>  <span class="n">Here</span>
+<span class="o">---------------</span> <span class="o">-----</span>
+<span class="n">Sub</span>   <span class="n">Headings</span>  <span class="n">Too</span>
+<span class="o">=====</span> <span class="o">=========</span> <span class="o">=====</span>
+<span class="n">column</span> <span class="n">spanning</span> <span class="n">no</span>
+<span class="o">---------------</span> <span class="o">-----</span>
+<span class="n">cell</span>  <span class="n">cell</span>      <span class="n">row</span>
+<span class="n">column</span> <span class="n">spanning</span> <span class="n">spans</span>
+<span class="o">===============</span> <span class="o">=====</span>
+</pre></div>
+</div>
+<p>Note that lines between rows are optional and only needed to indicate
+where cells in the previous line span columns (by omitting the space).</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="47%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Table Headings</th>
+<th class="head">Here</th>
+</tr>
+<tr class="row-even"><th class="head">Sub</th>
+<th class="head">Headings</th>
+<th class="head">Too</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td colspan="2">column spanning</td>
+<td>no</td>
+</tr>
+<tr class="row-even"><td>cell</td>
+<td>cell</td>
+<td>row</td>
+</tr>
+<tr class="row-odd"><td colspan="2">column spanning</td>
+<td>spans</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<hr class="docutils" />
+<p>Apart from the ability to span rows and do block formatting within cells
+in a grid table, the actual table formatting is not affected by the use
+of grid or simple tables, and depends only on the reStructuredText
+processor and any style sheets it may use; for more visual compatibility
+you may want to use the table style that most closely resembles the
+output table.</p>
+<p>Conversely, if you have a reason to prefer the “pipe tables” format
+defined by PHP Markdown Extra and supported by GitHub Flavored Markdown
+and the latest version (1.10) of Pandoc, you can get reasonable results by
+making sure that the previous paragraph <strong>does</strong> end with a double colon
+<code class="docutils literal"><span class="pre">::</span></code> which will make the table display as monospaced ASCII in
+reStructuredText.</p>
+<blockquote>
+<div><p>Colons can be used to align columns in pipe tables:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>| Tables        |      Are      |  Cool |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      |    centered   |   $12 |
+| zebra stripes |    are neat   |    $1 |
+</pre></div>
+</div>
+</div></blockquote>
+<p>Colons can be used to align columns in pipe tables:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>| Tables        |      Are      |  Cool |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      |    centered   |   $12 |
+| zebra stripes |    are neat   |    $1 |
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Also, just as for list indentation, it is a <em>very</em> good idea to make
+sure that no tab characters are embedded in the tables; configure your
+text editor to expand all tabs into spaces; this will help to ensure
+that the source ASCII display in reStructuredText or Markdown is
+properly aligned.</p>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>There is no comment syntax for Markdown, but HTML comments can be used
+with Markdown processors that allow them (raw HTML is often disabled
+for security or other reasons, possibly with whitelisted tags allowed;
+notably, GitHub and BitBucket README markdown disable HTML comments).
+Standard Markdown (but not most processors) requires blank lines before
+and after HTML blocks.  Comments in reStructuredText use a different
+syntax, but it is possible to create comments that are entirely
+invisible in reStructuredText output, and only appear as periods in
+Markdown output (unless HTML comments are disabled).</p>
+<p>In the following comment examples, the reStructuredText comment /
+directive marker <code class="docutils literal"><span class="pre">..</span></code> is followed by two more periods so that the
+following blank line does not terminate the comment.  For most Markdown
+processors, you can use an <code class="docutils literal"><span class="pre">&amp;nbsp;</span></code> entity instead of the two
+additional periods to reduce the visual impact; but some Markdown
+processors (notably the Python Markdown used by BitBucket README
+processing) do not support entities outside of HTML blocks.</p>
+<p>The following block is completely hidden from reStructuredText output,
+and barely visible in Markdown output if HTML comments are allowed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>.. ..
+
+ &lt;!--- Need blank line before this line (and the .. line above).
+ HTML comment written with 3 dashes so that Pandoc suppresses it.
+ Blank lines may appear anywhere in the comment.
+
+ All non-blank lines must be indented at least one space.
+ HTML comment close must be followed by a blank line and a line
+ that is not indented at all (if necessary that can be a line
+ with just two periods followed by another blank line).
+ ---&gt;
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>You can also use a variation of the above to include Markdown markup
+that will be entirely ignored by reStructuredText:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="o">..</span>
+
+ <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">Need</span> <span class="n">blank</span> <span class="n">line</span> <span class="n">before</span> <span class="n">this</span> <span class="n">line</span> <span class="p">(</span><span class="ow">and</span> <span class="o">..</span> <span class="n">line</span> <span class="n">above</span><span class="p">)</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">Blank</span> <span class="n">lines</span> <span class="n">may</span> <span class="n">appear</span> <span class="n">anywhere</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">section</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+
+ <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">All</span> <span class="n">non</span><span class="o">-</span><span class="n">blank</span> <span class="n">lines</span> <span class="n">must</span> <span class="n">be</span> <span class="n">indented</span> <span class="n">at</span> <span class="n">least</span> <span class="n">one</span> <span class="n">space</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">HTML</span> <span class="ow">and</span> <span class="n">text</span> <span class="n">are</span> <span class="n">displayed</span> <span class="n">only</span> <span class="ow">in</span> <span class="n">Markdown</span> <span class="n">output</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">End</span> <span class="n">of</span> <span class="n">Markdown</span><span class="o">-</span><span class="n">only</span> <span class="nb">input</span> <span class="n">must</span> <span class="n">be</span> <span class="n">followed</span> <span class="n">by</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">line</span> <span class="ow">and</span>
+ <span class="n">a</span> <span class="n">line</span> <span class="n">that</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">indented</span> <span class="n">at</span> <span class="nb">all</span> <span class="p">(</span><span class="k">if</span> <span class="n">necessary</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">line</span>
+ <span class="k">with</span> <span class="n">just</span> <span class="n">two</span> <span class="n">dots</span> <span class="n">followed</span> <span class="n">by</span> <span class="n">another</span> <span class="n">blank</span> <span class="n">line</span><span class="p">)</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>You can use another variation of the above to include reStructuredText
+markup that will be ignored by Markdown (except for the periods):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>.. ..
+
+ &lt;!--- Need blank line before this line (and the .. line above).
+ HTML comment written with 3 dashes so that Pandoc suppresses it.
+ These lines not starting with .. must be indented.
+ HTML comment close must be followed by a blank line and a line
+ that is not indented at all (if necessary that can be a line
+ with just two periods followed by another blank line).
+
+.. note:: This is a reStructuredText directive - the Markdown
+   output should be just periods
+
+.. ---&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a reStructuredText directive - the Markdown
+output should be just periods</p>
+</div>
+<hr class="docutils" />
+<p>Note that although HTML comments are usually marked with <code class="docutils literal"><span class="pre">&lt;!--</span> <span class="pre">--&gt;</span></code>
+you should use three dashes instead of two: <code class="docutils literal"><span class="pre">&lt;!---</span> <span class="pre">---&gt;</span></code> as this is
+used by Pandoc to prevent passing the comment through to the output.</p>
+</div>
+</div>
+<div class="section" id="markdown-extensions">
+<h1>Markdown Extensions<a class="headerlink" href="#markdown-extensions" title="Permalink to this headline">¶</a></h1>
+<p>Unlike reStructuredText, which is virtually identical across all its
+implementations, there are a wide variety of semi-compatible Markdown
+extension styles; the most popular are MultiMarkdown and Markdown Extra
+(the latter implemented by PHP Markdown and Maruku, and partially by
+Python Markdown and Redcarpet); Pandoc has its own set of Markdown
+extensions, based on both Markdown Extra and reStructuredText; these
+Markdown extensions are the most similar to reStructuredText, while the
+Markdown Extra extensions have a smaller overlap, and the MultiMarkdown
+extensions are only compatible with reStructuredText when they are also
+identical to parts of Markdown Extra.</p>
+<div class="section" id="definition-lists">
+<h2>Definition Lists<a class="headerlink" href="#definition-lists" title="Permalink to this headline">¶</a></h2>
+<p>Markdown Extra, MultiMarkdown, and Pandoc support a syntax that is
+fairly compatible with the definition list syntax in reStructuredText;
+by using the following format, definitions can be written that are
+recognized by all of these processors.  In reStructuredText, any line
+that is followed immediately by an indented line is a definition term,
+with the following lines at the same indentation level forming the
+definition.  Markdown Extra allows an optional blank line between the
+term and definition lines, but requires the definition to begin with a
+colon (<code class="docutils literal"><span class="pre">:</span></code>) that is not indented by more than three spaces and is
+followed by a space and the definition</p>
+<p>To be recognized as a definition list item in both reStructuredText and
+Markdown extensions, only a single term is allowed, and it must be
+followed immediately (with no blank line) by the definition.  The
+definition must begin with an (indented) colon and a space and it and
+any continuation lines or additional paragraphs or definitions must all
+be indented by the same amount (one to three spaces), as shown in the
+following example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">term</span>
+  <span class="p">:</span> <span class="n">definition</span>
+
+<span class="n">longer</span> <span class="n">term</span>
+  <span class="p">:</span> <span class="n">multi</span><span class="o">-</span><span class="n">line</span> <span class="n">definition</span>
+  <span class="n">a</span> <span class="n">second</span> <span class="n">line</span> <span class="p">(</span><span class="n">will</span> <span class="n">be</span> <span class="n">subject</span> <span class="n">to</span> <span class="n">flow</span> <span class="ow">and</span> <span class="n">wrapping</span><span class="p">)</span>
+
+  <span class="n">a</span> <span class="n">second</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">definition</span>
+
+<span class="nb">complex</span> <span class="n">term</span>
+  <span class="p">:</span> <span class="n">first</span> <span class="n">definition</span>
+
+  <span class="p">:</span> <span class="n">second</span> <span class="n">definition</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>term</dt>
+<dd>: definition</dd>
+<dt>longer term</dt>
+<dd><p class="first">: multi-line definition
+a second line (will be subject to flow and wrapping)</p>
+<p class="last">a second paragraph in the definition</p>
+</dd>
+<dt>complex term</dt>
+<dd><p class="first">: first definition</p>
+<p class="last">: second definition</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="fancy-list-numbers">
+<h2>Fancy list numbers<a class="headerlink" href="#fancy-list-numbers" title="Permalink to this headline">¶</a></h2>
+<p>Although most Markdown processors only support enumerated lists with
+arabic numbers followed by periods, Pandoc also supports other list
+styles that are compatible with reStructuredText.  In particular,
+letters (<code class="docutils literal"><span class="pre">A</span></code>) as well as roman numerals (<code class="docutils literal"><span class="pre">IV</span></code>) and alternate
+punctuation with parentheses ( <code class="docutils literal"><span class="pre">(b)</span></code> or <code class="docutils literal"><span class="pre">xiv)</span></code> ) are recognized, and
+sequences starting with numbers other than 1 (or roman numeral I or
+letter A) have the actual starting number or letter preserved in output.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="10_plantuml.html" class="btn btn-neutral float-right" title="PlantUML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="09_quick-rst.html" class="btn btn-neutral" title="ReST Quick Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Jimmi Kristensen.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>First Steps with Sphinx &mdash; Sphinx Demo 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Sphinx Demo 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Using reStructuredText" href="04_rst.html"/>
+        <link rel="prev" title="Installing Sphinx" href="02_install.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Sphinx Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">What is Sphinx?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_install.html">Installing Sphinx</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">First Steps with Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-the-tutorial-demo-optional">Prepare the tutorial demo (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-docs">Building docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-the-look">Change the Look</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-the-links">Check the Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_rst.html">Using reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_code.html">Showing Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_rtd.html">ReadTheDocs and Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_advanced.html">Going Further into Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_appendix.html">Useful Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_quick-rst.html">ReST Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html">Markdown and reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html#the-common-denominator">The Common Denominator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html#incompatibilities">Incompatibilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html#not-incompatible-extensions">Not-Incompatible Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html#markdown-extensions">Markdown Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_plantuml.html">PlantUML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sphinx Demo</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>First Steps with Sphinx</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/03_firststeps.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="first-steps-with-sphinx">
+<h1>First Steps with Sphinx<a class="headerlink" href="#first-steps-with-sphinx" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prepare-the-tutorial-demo-optional">
+<h2>Prepare the tutorial demo (optional)<a class="headerlink" href="#prepare-the-tutorial-demo-optional" title="Permalink to this headline">¶</a></h2>
+<p>To see a Sphinx example you can clone this tutorial from GitHub:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ git clone https://github.com/cehbrecht/quick-sphinx-tutorial.git
+</pre></div>
+</div>
+<p>Setup the conda environment which includes the Sphinx package with some extensions:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> quick-sphinx-tutorial
+$ conda env create -f environment.yml
+$ <span class="nb">source</span> activate giza
+</pre></div>
+</div>
+<p>Or use pip to install the Sphinx packages:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Create docs folder:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ mkdir docs
+$ <span class="nb">cd</span> docs
+</pre></div>
+</div>
+<p>Create the sphinx skeleton:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sphinx-quickstart
+
+&gt; Root path for the documentation [.]:
+&gt; Separate source and build directories (y/n) [n]: y
+&gt; Name prefix for templates and static dir [_]:
+&gt; Project name: Giza
+&gt; Author name(s): Mac Pingu
+&gt; Project version: 0.1
+&gt; Project release [0.1]:
+&gt; Project language [en]:
+&gt; Source file suffix [.rst]:
+&gt; Name of your master document (without suffix) [index]:
+&gt; Do you want to use the epub builder (y/n) [n]:
+&gt; autodoc: automatically insert docstrings from modules (y/n) [n]:
+&gt; doctest: automatically test code snippets in doctest blocks (y/n) [n]:
+&gt; intersphinx: link between Sphinx documentation of different projects (y/n) [n]: y
+&gt; todo: write &quot;todo&quot; entries that can be shown or hidden on build (y/n) [n]: y
+&gt; coverage: checks for documentation coverage (y/n) [n]:
+&gt; imgmath: include math, rendered as PNG or SVG images (y/n) [n]:
+&gt; mathjax: include math, rendered in the browser by MathJax (y/n) [n]:
+&gt; ifconfig: conditional inclusion of content based on config values (y/n) [n]:
+&gt; viewcode: include links to the source code of documented Python objects (y/n) [n]: y
+&gt; githubpages: create .nojekyll file to publish the document on GitHub pages (y/n) [n]:
+&gt; Create Makefile? (y/n) [y]:
+&gt; Create Windows command file? (y/n) [y]:
+</pre></div>
+</div>
+<p>Your file system should now look similar to this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>mypackage
+├── src
+└── docs
+    ├── Makefile
+    ├── make.bat
+    ├── build
+    └── sources
+         ├── conf.py
+         └── index.rst
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-docs">
+<h2>Building docs<a class="headerlink" href="#building-docs" title="Permalink to this headline">¶</a></h2>
+<p>Let’s build our docs into HTML to see how it works.
+Simply run:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Inside top-level docs/ directory.</span>
+$ make html
+</pre></div>
+</div>
+<p>This should run Sphinx in your shell, and output HTML.
+At the end, it should say something about the documents being ready in
+<code class="docutils literal"><span class="pre">build/html</span></code>.
+You can now open them in your browser by typing:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ firefox build/html/index.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-the-look">
+<h2>Change the Look<a class="headerlink" href="#change-the-look" title="Permalink to this headline">¶</a></h2>
+<p>You can change the look of the generated documents by setting the <code class="docutils literal"><span class="pre">html_theme</span></code> setting in your <code class="docutils literal"><span class="pre">conf.py</span></code>.
+Go ahead and set it like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinxdoc&#39;</span>
+</pre></div>
+</div>
+<p>If you rebuild your documentation,
+you will see the new theme:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ make html
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Have a look at the <span class="xref std std-ref">builtin-themes</span>.</p>
+</div>
+</div>
+<div class="section" id="check-the-links">
+<h2>Check the Links<a class="headerlink" href="#check-the-links" title="Permalink to this headline">¶</a></h2>
+<p>Sphinx can check if the links in your document are valid:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ make linkcheck
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="04_rst.html" class="btn btn-neutral float-right" title="Using reStructuredText" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="02_install.html" class="btn btn-neutral" title="Installing Sphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Jimmi Kristensen.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ReadTheDocs and Sphinx &mdash; Sphinx Demo 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Sphinx Demo 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Going Further into Sphinx" href="07_advanced.html"/>
+        <link rel="prev" title="Showing Source Code" href="05_code.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Sphinx Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">What is Sphinx?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_install.html">Installing Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_firststeps.html">First Steps with Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_rst.html">Using reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_code.html">Showing Source Code</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ReadTheDocs and Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#read-the-docs-features">Read the Docs Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="07_advanced.html">Going Further into Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_appendix.html">Useful Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_quick-rst.html">ReST Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html">Markdown and reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html#the-common-denominator">The Common Denominator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html#incompatibilities">Incompatibilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html#not-incompatible-extensions">Not-Incompatible Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_markdown_and_rst.html#markdown-extensions">Markdown Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_plantuml.html">PlantUML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sphinx Demo</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>ReadTheDocs and Sphinx</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/06_rtd.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="readthedocs-and-sphinx">
+<span id="rtd"></span><h1>ReadTheDocs and Sphinx<a class="headerlink" href="#readthedocs-and-sphinx" title="Permalink to this headline">¶</a></h1>
+<p>The powerful and popular <a href="#id2"><span class="problematic" id="id3">`Read The Docs`_</span></a> service
+lets you configure your GitHub repository
+so that every time you push a new version of your software,
+the documentation gets automatically rebuilt
+and made available at:</p>
+<p><a class="reference external" href="https://readthedocs.org/projects">https://readthedocs.org/projects</a>/&lt;project-name&gt;/</p>
+<p>Last but not least,
+once you’ve written your documentation you have to put it somewhere for the world to see!
+Read the Docs makes this quite simple,
+and is free for all open source projects.</p>
+<ul class="simple">
+<li>Register for an account at <a class="reference external" href="https://readthedocs.org">https://readthedocs.org</a></li>
+<li>Click the <em>Import Project</em> button</li>
+<li>Add the URL for a specific repository you want to build docs for</li>
+<li>Sit back and have a drink while Read the Docs does the rest.</li>
+</ul>
+<p>It will:</p>
+<ul class="simple">
+<li>Pull down your code</li>
+<li>Install your <code class="docutils literal"><span class="pre">requirements.txt</span></code></li>
+<li>Build HTML, PDF, and ePub of your docs</li>
+<li>Serve it up online at <code class="docutils literal"><span class="pre">http://&lt;projectname&gt;.readthedocs.org</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">View the project page for this tutorial on <a class="reference external" href="https://readthedocs.org/projects/quick-sphinx-tutorial/">ReadTheDocs</a></p>
+</div>
+<div class="section" id="read-the-docs-features">
+<h2>Read the Docs Features<a class="headerlink" href="#read-the-docs-features" title="Permalink to this headline">¶</a></h2>
+<p>Read the Docs gives you a number of additional features.</p>
+<ul class="simple">
+<li>You can add Versions to your project for each tag &amp; branch.</li>
+<li>You can alerts for when your doc build fails</li>
+<li>You can search across the full set of docs</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">View this tutorial on <a class="reference external" href="http://quick-sphinx-tutorial.readthedocs.org/en/latest/">ReadTheDocs</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="07_advanced.html" class="btn btn-neutral float-right" title="Going Further into Sphinx" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="05_code.html" class="btn btn-neutral" title="Showing Source Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Jimmi Kristensen.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
