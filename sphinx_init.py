@@ -79,13 +79,17 @@ def main():
     if 'projectName' not in os.environ:
         sys.exit('Environment variable projectName is missing')
 
+    if 'owner' not in os.environ:
+        sys.exit('Entivonemnt variable owner is missing')
+
+    owner = os.environ.get('owner');
     projectName = os.environ.get('projectName');
     sphinxdocPath = os.environ.get('sphinxdocPath', '/doc/sphinxdoc')
     docDir = os.environ.get('docDir', '/doc')
     masterDoc = os.environ.get('masterDoc', 'index')
     docVersion = os.environ.get('docVersion', '1.0')
     docSuffix = os.environ.get('docSuffix', '.rst')
-    docAuthor = os.environ.get('docAuthor', 'me')
+    docAuthor = os.environ.get('docAuthor', owner)
 
     # clean up sphinxdoc dir before initializing
     cleanUp(sphinxdocPath)
