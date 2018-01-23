@@ -56,24 +56,24 @@ to the attachments, which means that they will be visible in confluence.
 
 ### Sphinx Environment Variables
 
-| Variable        | Required | Default Value             | Description 
-| --------------- | -------- | ------------------------- | 
-| projectName     | Yes      |                           | The name of the project displayed in the generated documentation.
-| sphinxdocPath   | No       | /doc/sphinxdoc            | The root path of the Sphinx doc. This dir will contain the source and build dirs along with the make files.
-| docDir          | No       | /doc                      | The dir containing your source rst files along with the "assets/images" dir.
-| masterDoc       | No       | index                     | The sphinx master document.
-| docVersion      | No       | 1.0                       | The document version used at initialization.
-| owner           | Yes      |                           | Project owner.
-| major           | Yes      |                           | Major version.
-| minor           | Yes      |                           | Minor version. Both major and minor version will be used as the document version (major.minor).
-| docSuffix       | No       | .rst                      | The source document file extension.
-| docAuthor       | Yes      |                           | Author of the documents.
-| imgDir          | No       | _images                   | The dir containing images inside the build dir - e.g. /doc/sphinxdoc/build/html/_images.
-| downloadDir     | No       | _downloads                | The dir containing downloads inside the build dir - e.g. /doc/sphinxdoc/build/html/_downloads. This is used for creating downloads attachmens when publishing to confluence.
-| confluenceAuth  | Yes      |                           | Used for authentication against the confluence API. This is a basic auth which means it is a base64 encoding of username:password.
-| confluencePages | Yes      |                           | A comma separated list of document_name:confluence_id. E.g. to publish the documents Document1.rst and Document2.rst to a confluence page with ID 98765 and 35425, the param will look like this Document1:98765,Document2:35425,.
-| confluenceUrl   | Yes      |                           | URL for the confuence API - e.g. https://something.atlassian.net/wiki
-| jsonBuildPath   | No       | /doc/sphinxdoc/build/json | The build path of the json documents.
+ Variable        | Required | Default Value             | Description 
+ --- | --- | --- | ---
+ projectName     | Yes      |                           | The name of the project displayed in the generated documentation.
+ sphinxdocPath   | No       | /doc/sphinxdoc            | The root path of the Sphinx doc. This dir will contain the source and build dirs along with the make files.
+ docDir          | No       | /doc                      | The dir containing your source rst files along with the "assets/images" dir.
+ masterDoc       | No       | index                     | The sphinx master document.
+ docVersion      | No       | 1.0                       | The document version used at initialization.
+ owner           | Yes      |                           | Project owner.
+ major           | Yes      |                           | Major version.
+ minor           | Yes      |                           | Minor version. Both major and minor version will be used as the document version (major.minor).
+ docSuffix       | No       | .rst                      | The source document file extension.
+ docAuthor       | Yes      |                           | Author of the documents.
+ imgDir          | No       | _images                   | The dir containing images inside the build dir - e.g. /doc/sphinxdoc/build/html/_images.
+ downloadDir     | No       | _downloads                | The dir containing downloads inside the build dir - e.g. /doc/sphinxdoc/build/html/_downloads. This is used for creating downloads attachmens when publishing to confluence.
+ confluenceAuth  | Yes      |                           | Used for authentication against the confluence API. This is a basic auth which means it is a base64 encoding of username:password.
+ confluencePages | Yes      |                           | A comma separated list of document_name:confluence_id. E.g. to publish the documents Document1.rst and Document2.rst to a confluence page with ID 98765 and 35425, the param will look like this Document1:98765,Document2:35425,.
+ confluenceUrl   | Yes      |                           | URL for the confuence API - e.g. https://something.atlassian.net/wiki
+ jsonBuildPath   | No       | /doc/sphinxdoc/build/json | The build path of the json documents.
 
 
 ## Basic Usage
