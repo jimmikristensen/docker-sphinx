@@ -26,13 +26,15 @@ docker build --force-rm -t jkris/docker-sphinx .
 docker pull jkris/docker-sphinx
 ```
 
-## Usage
+## Basic Usage
 
 ```sh
 docker run --rm -i -t -v "${PWD}:/doc" -u "$(id -u):$(id -g)" jkris/docker-sphinx <cmd>
 ```
 
 The volume mount ${PWD} should point to the dir containing the .rst files. You can execute any commands <cmd> within the docker container - read on to see some examples.
+
+To __automate the process__, please look at the Advanced Usage section or the example directory.
 
 ### Docker Compose
 
@@ -83,9 +85,11 @@ docker-compose run --rm sphinx conf_publisher config.yml --verbose --url <conflu
 
 ```
 
-## Automatically Setup Sphinx and Confluence Config
+## Advanced Usage
 
-To make it easier for me to automate the process, I have created two python scripts.
+To make the automation process easier for use in a deployment pipeline, I have created three python scripts.
+
+
 
 ### sphinx_init.py
 
@@ -94,9 +98,13 @@ If run multiple times, it will cleanup before running again. It modifies the con
 which enables you to set (and change) the values when the container is started.
 It will also add any .rst files you have in your directory to the master document (usually index.rst).
 
+### sphinx_make.py
+This script has two purposes: 1) To copy any images that are stored in _assets/images_ directory into the sphinx build directory and change the path for the image
+in the generated document, and 2) to run the sphinx make command.
+
 ### sphinx_confluence_publish.py
 
-The most important thing this script does for you, is to generate the config.yml file based on the environemtn variables
+This script generates the config.yml file based on the environemtn variables
 you pass to it and the .rst documents in your directory. If you are using plantuml in your documents or have images or
 downloads in your sphinx project, these files will be added to the config.yml and attached the confluence page.
 Furthermore, the plantuml and images referenced in your .rst documents will be converted to confluence image references
