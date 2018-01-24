@@ -53,8 +53,15 @@ to the attachments, which means that they will be visible in confluence.
 
 ### Example
 
+An example of how to use this project is located in the __examples__ dir. This dir contains:
 
-### Sphinx Environment Variables
+* A __sphinx.env__ file containing the variables used by the python scripts in order to 1) initialize a new sphinx project, 
+2) run the sphinx make commands and 3) push the changes to confluence. 
+An explanation of the different variables can be found in the table under the _Sphinx Environment Variables_.
+* A __docs__ dir containing all the reStructuredText (.rst) files, which is where your source documentation goes.
+* A __docker-compose.yml__ file to make it easier to run commands for generating documentation.
+
+#### Sphinx Environment Variables
 
  Variable        | Required | Default Value             | Description 
  --- | --- | --- | ---
