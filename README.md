@@ -40,6 +40,7 @@ which enables you to set (and change) the values when the container is started.
 It will also add any .rst files you have in your directory to the master document (usually index.rst).
 
 ### sphinx_make.py
+
 This script has two purposes: 1) To copy any images that are stored in _assets/images_ directory into the sphinx build directory and change the path for the image
 in the generated document, and 2) to run the sphinx make command.
 
@@ -55,11 +56,54 @@ to the attachments, which means that they will be visible in confluence.
 
 An example of how to use this project is located in the __examples__ dir. This dir contains:
 
-* A __sphinx.env__ file containing the variables used by the python scripts in order to 1) initialize a new sphinx project, 
-2) run the sphinx make commands and 3) push the changes to confluence. 
+* A __sphinx.env__ file containing the variables used by the python scripts described above in order to 1) initialize a new sphinx project, 2) run the sphinx
+make commands and 3) push the changes to confluence. 
 An explanation of the different variables can be found in the table under the _Sphinx Environment Variables_.
-* A __docs__ dir containing all the reStructuredText (.rst) files, which is where your source documentation goes.
+* A __docs__ dir containing all the reStructuredText (.rst) files - this is where your source documentation goes.
 * A __docker-compose.yml__ file to make it easier to run commands for generating documentation.
+
+From inside the examples dir, run the following docker-compose commands:
+
+#### Initialization
+
+```bash
+docker-compose run --rm sphinx python /scripts/sphinx_init.py
+```
+
+This will initialize a new sphinx project creating a _sphinxdoc_ dir containing 1) a source dir with your rst files, 2) an empty build dir, and 3) the sphinx make files.
+Your source rst files are now ready to be converted into the format you wish.
+
+#### Make
+
+```bash
+docker-compose run --rm sphinx python /scripts/sphinx_make.py html
+```
+
+This command will generate HTML files based on the rst files in the source dir. The build/html dir will now contain a .html file for each of your source rst files, including an index.html.
+In this case several html files will be generated explaining what sphinx is together with some examples of the reStructuredText syntax and PlantUML.
+
+To generate _json_ instead, run the following command:
+
+```bash
+docker-compose run --rm sphinx python /scripts/sphinx_make.py json
+```
+
+To get a list of conversion options, run the command without arguments:
+
+```bash
+docker-compose run --rm sphinx python /scripts/sphinx_make.py
+```
+
+#### Confluence Publish
+
+```bash
+docker-compose run --rm sphinx python /scripts/sphinx_confluence_publish.py
+```
+
+> You will get an error if you run this command without correcting the _confluenceAuth_, _confluencePages_ and _confluenceUrl_ variables in sphinx.env to match your installation of Atlassian Confluence.
+
+A precondition for running this command is that you have generated _json_ files beforehand. The command will read the json files and publish the documents specified by the _confluencePages_ variable to
+the confluence URL given by the _confluenceUrl_ variable using the authentication given by _confluenceAuth_.
 
 #### Sphinx Environment Variables
 
