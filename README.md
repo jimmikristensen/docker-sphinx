@@ -105,7 +105,7 @@ docker-compose run --rm sphinx python /scripts/sphinx_confluence_publish.py
 A precondition for running this command is that you have generated _json_ files beforehand. The command will read the json files and publish the documents specified by the _confluencePages_ variable to
 the confluence URL given by the _confluenceUrl_ variable using the authentication given by _confluenceAuth_.
 
-#### Sphinx Environment Variables
+#### Sphinx Environment Variables (sphinx.env)
 
  Variable        | Required | Default Value             | Description 
  --- | --- | --- | ---
