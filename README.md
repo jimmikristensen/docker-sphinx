@@ -129,7 +129,7 @@ the confluence URL given by the _confluenceUrl_ variable using the authenticatio
 
 ## Basic Usage
 
-This project can also be used without the python helper scripts wimply by invoking the sphinx commands directly.
+This project can also be used without the python helper scripts simply by invoking the sphinx commands directly.
 
 ```sh
 docker run --rm -i -t -v "${PWD}:/doc" -u "$(id -u):$(id -g)" jkris/docker-sphinx <cmd>
