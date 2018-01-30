@@ -60,7 +60,7 @@ def replaceImgWithAttachments(imageFiles, jsonFile):
         # replace plantuml images to confluence images
         replaceInFile(jsonFile, r'<p class=\\"plantuml\\">\\n<img src=\\"\.\./_images/%s.*?</p>' % img, '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
         # replace author inserted images with confluence images
-        replaceInFile(jsonFile, r'<img.*?alt=\\"_images/uml_logo.gif\\".*?src=\\"_images/uml_logo.gif\\".*?/>' % (img, img), '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
+        replaceInFile(jsonFile, r'<img.*?alt=\\"_images/%s\\".*?src=\\"_images/%s\\".*?/>' % (img, img), '<p><ac:image><ri:attachment ri:filename=\\"%s\\" ri:version-at-save=\\"1\\" /></ac:image></p>' % img)
 
 '''
 Creates the attachments part of the config.yml
