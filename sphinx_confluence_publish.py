@@ -8,7 +8,7 @@ import tempfile
 from conf_publisher import publish
 
 '''
-Creates the page part of the config.yml
+Creates the page part of the config.yml 
 Tages the confluencePages parameter in the format as a comma separated list 
 of <file name>:<confluence page ID> pairs i.e. README:74638263,INDEX:472947363
 imagePath is the path to where image attachments reside.
